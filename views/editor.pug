@@ -1,0 +1,22 @@
+html 
+    head 
+        title Simple editor
+        link(rel="preconnect", href="https://fonts.gstatic.com")
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap", rel="stylesheet")
+        link(rel="stylesheet" href='assets/css/main.css')
+    body 
+        header(class='header')
+            p(class='logo') Simple Editor 
+        sidebar(class='sidebar')
+            .flex-wrapper 
+                button(class='btn') Open file
+                button(class='btn icon')
+                    include ../public/assets/icons/bold.svg
+                button(class='btn icon')
+                    include ../public/assets/icons/italic.svg
+                button(class='btn icon')
+                    include ../public/assets/icons/dots.svg
+            .flex-wrapper.flex-end
+                button(class='btn save') Save
+        .editor-wrapper
+            textarea(class='editor' placeholder='Text...')
