@@ -1,6 +1,6 @@
 sidebar(class='sidebar')
     .flex-wrapper 
-        button(class='btn open') Open file
+        button(class='btn openBtn' name="open") Open file
         .tools
             button(class='btn tool' name="bold")
                 include ../public/assets/icons/bold.svg
@@ -9,4 +9,4 @@ sidebar(class='sidebar')
             button(class='btn tool' name="insertunorderedlist")
                 include ../public/assets/icons/dots.svg
     .flex-wrapper.flex-end
-        button(class='btn save') Save
+        button(class='btn btn--secondary save' name="save") Save
