@@ -40,7 +40,6 @@ body {
     width: 100vw;
     height: 10vh;
     display: flex;
-    justify-items: center;
     margin-top: 10vh;
     padding: 10px var(--sides-padding);
     background-color: var(--primary);
@@ -96,11 +95,12 @@ body {
     transform: translateX(-50%);
 }
 
-.save {
+.btn--primary,
+.btn--secondary {
     padding: 10px var(--sides-padding);
     border-radius: 20px;
-    background-color: var(--primary);
-    color: var(--white);
+        background-color: var(--primary);
+        color: var(--white);
 }
 
 .editor-wrapper {
@@ -121,6 +121,97 @@ body {
     resize: none;
 }
 
+.modal-wrapper {
+    width: 90vw;
+    height: 40vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    transform: scale(0) translate(-50%, -50%);
+    transition: transform .4s;
+}
+
+.modal-wrapper.open {
+    transform: scale(1) translate(-50%, -50%);
+}
+
+.save-modal, .open-modal {
+    display: none;
+}
+
+.save-modal {
+    height: 100%;
+    align-items: center;
+}
+
+.open-modal{ 
+    width: 85%;
+    height: 75%;
+    justify-content: space-between;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--primary);
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid var(--primary);
+    line-height: 2;
+    margin-top: 10px;
+}
+
+.input:focus {
+    outline: none;
+    border-bottom: 2px solid var(--primary);
+}
+
+.label, .input, .list-item {
+    font-size: 1.6rem;
+}
+
+.files-list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+.list-item {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+    list-style: none;
+}
+
+.list-item:hover, .list-item.selected {
+background-color: #f5f5f5;
+}
+
+.shadow {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 @media (orientation: landscape) {
     .logo{
         font-size: 2rem;;
@@ -132,27 +223,31 @@ body {
 }
 
 @media (min-width: 360px) {
-    .btn, .editor {
+    .btn,
+    .editor,
+    .label,
+    .input,
+    .list-item {
         font-size: 2rem;
     }  
 }
 
 @media (min-width: 768px) {
- 		.btn,
- 		.editor {
+ 	.btn,
+ 	.editor {
      	font-size: 2.5rem;
- 		}
+ 	}
 
     .sidebar {
-         width: 15vw;
-         height: 100vh;
-         position: fixed;
-         top: 0;
-         right: 0;
-         display: grid;
-         grid-template-rows: 0.4fr 1fr;
-         margin-top: 0;
-         padding: calc(10vh + 20px) 0 30px;
+        width: 15vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: grid;
+        grid-template-rows: 0.4fr 1fr;
+        margin-top: 0;
+        padding: calc(10vh + 20px) 0 30px;
     }
 
     .flex-wrapper { 
@@ -165,13 +260,13 @@ body {
        transform: translateX(0);
    }
 
-   .open {
+   .openBtn {
        position: absolute;
        top: calc(10vh / 2);
        transform: translateY(-50%);
    }
 
-   .open:hover {
+   .openBtn:hover {
        transform: translateY(-50%) scale(1.05);
    }
 
@@ -187,16 +282,37 @@ body {
        margin: 0 0 10px;
 	}
 
-   .save {
+   .btn--secondary {
        background-color: var(--white);
        color: var(--primary);
    }
 
    .editor-wrapper {
-     width: 85vw;
-     height: 90vh;
-     margin-top: 10vh;
-     padding: 20px;
+       width: 85vw;
+       height: 90vh;
+       margin-top: 10vh;
+       padding: 20px;
+    }
+
+    .modal-wrapper {
+        width: 50vw;
+    }
+
+    .save-modal, .open-modal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .save-modal {
+        justify-content: center;
+    }
+
+    .open-modal {
+        height: 100%;
+    }
+
+    .files-list {
+        max-height: 100%;
     }
 }
 
@@ -215,16 +331,22 @@ body {
         height: 60px;
         margin-bottom: 15px;
     }
+
+    .label,
+    .input,
+    .list-item {
+        font-size: 2.5rem;
+    }
 }
 
 @media (min-width: 1200px) {
-     .logo {
-         font-size: 3rem;
-     }
+    .logo {
+        font-size: 3rem;
+    }
 
     .btn,
     .editor {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .sidebar { 
@@ -233,5 +355,26 @@ body {
 
     .editor-wrapper {
         width: 90vw;
-       }
+    }
+
+    .modal-wrapper {
+        width: 35vw;
+    }
+}
+
+@media (min-width: 1600px) {
+    .logo {
+        font-size: 3.5rem;
+    }
+
+    .btn,
+    .editor {
+        font-size: 3rem;
+    }
+
+    .label,
+    .input,
+    .list-item {
+        font-size: 2.5rem;
+    }
 }
