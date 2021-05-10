@@ -1,0 +1,11 @@
+.modal-wrapper
+    button(class='btn close') X
+    form(class='save-modal' action='/save' method="post" )
+        .input-wrapper
+            label(for="fileName" class='label' ) File name:
+            input(id="fileName" type="text" class="input" name="name" required)
+            input( type="text" name="text" class='hidden-input' style='transform: scale(0)')
+        button(class="btn btn--primary flex-end" type='submit' id='save') Save file
+    .open-modal
+        ul(class="files-list")
+        button(class="btn btn--primary flex-end" id='open') Open file
