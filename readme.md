@@ -11,7 +11,7 @@ This project is created with:
  * Node.js/Express.js
  * CSS
  * JavaScript
- * AJAX
+ * Pug
 
 ## Live Preview 
 
