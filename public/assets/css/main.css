@@ -55,10 +55,6 @@ body {
     cursor: pointer;
 }
 
-.btn:hover { 
-    transform: scale(1.05);
-}
-
 .flex-wrapper {
     width: 100%;
     display: flex;
@@ -202,6 +198,7 @@ body {
     justify-content: space-between;
     padding: 0 5px;
     list-style: none;
+    cursor: pointer;
 }
 
 .list-item:hover, .list-item.selected {
