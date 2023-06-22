@@ -15,4 +15,4 @@ This project is created with:
 
 ## Live Preview 
 
-* https://simpleeditor.herokuapp.com/
+* [https://simpleeditor.herokuapp.com/](https://simple-editor-93fb6cff0dfa.herokuapp.com/)https://simple-editor-93fb6cff0dfa.herokuapp.com/
